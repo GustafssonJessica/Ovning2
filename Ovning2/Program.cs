@@ -67,8 +67,15 @@ do
                 else
                     Console.Write($"{i}. {text}, "); 
             }
+            break;
+            case "4":
+            //nått med tre ord
+            Console.WriteLine("Var god ange en mening med minst tre ord: ");
+            var split = Console.ReadLine().Split(' '); 
+            Console.WriteLine($"Det tredje ordet är: {split[2]}");
 
             break;
+
         default:
             Console.WriteLine("Du har angett felaktig input");
             break;
