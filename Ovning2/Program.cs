@@ -1,5 +1,4 @@
 ﻿
-bool loop = true;
 
 do
 {
@@ -8,13 +7,12 @@ do
         "\n1) Se ditt pris på bio" +
         "\n2) Se ditt sällskaps pris på bio" +
         "\n3) Få en text upprepad 10 gånger" +
-        "\n4) nått med tre ord ");
+        "\n4) SKriv en mening och få ut det tredje ordet ");
     string input = Console.ReadLine();
 
     switch (input) //tror det är ok med do while, för han säger "evighetsloop" i föreläsningen om en do while
     {
         case "0":
-            loop = false; // "stänger ned programmet"?
             Environment.Exit(0); // Avslutar programmet
             break;
         case "1":
@@ -65,14 +63,14 @@ do
                 if (i == 10)
                     Console.Write($"{i}. {text} \n\n");
                 else
-                    Console.Write($"{i}. {text}, "); 
+                    Console.Write($"{i}. {text}, ");
             }
             break;
-            case "4":
+        case "4":
             //nått med tre ord
             Console.WriteLine("Var god ange en mening med minst tre ord: ");
-            var split = Console.ReadLine().Split(' '); 
-            Console.WriteLine($"Det tredje ordet är: {split[2]}");
+            var split = Console.ReadLine().Split(' ');
+            Console.WriteLine($"Det tredje ordet är: \"{split[2]}\"");
 
             break;
 
@@ -80,6 +78,7 @@ do
             Console.WriteLine("Du har angett felaktig input");
             break;
     }
-} while (loop);
-
+    Console.WriteLine("\n"); //för att separera menyn från det som skrivits innan 
+} while (true);
+Console.ReadLine(); //för att inte få upp text nederst i konsolen
 
