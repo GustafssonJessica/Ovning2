@@ -62,7 +62,10 @@ do
             Console.WriteLine("\n");
             for (int i = 1; i <= 10; i++)
             {
-                Console.Write($"{i}. {text},"); //nu kommer det vara komma även efter sista gången
+                if (i == 10)
+                    Console.Write($"{i}. {text} \n\n");
+                else
+                    Console.Write($"{i}. {text}, "); 
             }
 
             break;
