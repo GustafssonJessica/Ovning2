@@ -1,13 +1,13 @@
 ﻿
 
-//Övning 2 - Flow Control. Övning innehållande bland annat switch, while, if, for-loopar
+//Övning 2 - Flow Control. Övningen innehåller bland annat switch, while, if, for-loopar
 
 do
 {
     //Huvudmeny när programmet körs
     Console.WriteLine("Du har kommit till huvudmenyn.\nFör att navigera och testa nya funktioner, skriv in siffra på den funktion du vill prova:" +
         "\n0) Avsluta programmet" +
-        "\n1) Se ditt pris på bio" +
+        "\n1) Se ditt pris på biobiljett" +
         "\n2) Se ditt sällskaps pris på bio" +
         "\n3) Få en text upprepad 10 gånger" +
         "\n4) SKriv en mening och få ut det tredje ordet ");
@@ -42,7 +42,6 @@ do
     Console.WriteLine("\n"); //för att separera menyn från det som skrivits innan 
 } while (true);
 
-Console.ReadLine(); //för att inte få upp text nederst i konsolen
 
 
 
@@ -52,18 +51,14 @@ static void SingleCinemaTicket()
     Console.WriteLine("Var god ange ålder i siffor: ");
     int age = int.Parse(Console.ReadLine());
     string price;
-    if (age < 20)
-    {
+    if (age < 5 || age > 100)
+        price = "Personer under 5 år eller över 100 år: Gratis";
+    else if (age < 20)
         price = "Ungdomspris: 80kr";
-    }
     else if (age > 64)
-    {
         price = "Pensionärspris: 90kr";
-    }
     else
-    {
         price = "Standardpris: 120kr";
-    }
     Console.WriteLine(price);
 }
 
@@ -73,11 +68,13 @@ static void MultipleCinemaTickets()
     int numberOfPeople = int.Parse(Console.ReadLine());
     int totalPrice = 0;
     int age;
-    for (int i = 1; i <= numberOfPeople; i++)
+    for (int i = 1; i <= numberOfPeople; i++) //för varje person som ska på bio, fråga efter ålder för att få ut kostnad
     {
         Console.WriteLine($"Hur gammal är person nummer {i}?: ");
-        age = int.Parse(Console.ReadLine()); 
-        if (age < 20)
+        age = int.Parse(Console.ReadLine());
+        if (age < 5 || age > 100) //ingen ytterligare kostnad för personer med dessa åldrar
+            totalPrice += 0;
+        else if (age < 20)
             totalPrice += 80;
         else if (age > 64)
             totalPrice += 90;
@@ -94,7 +91,7 @@ static void RepeatTenTimes()
     Console.WriteLine("\n");
     for (int i = 1; i <= 10; i++)
     {
-        if (i == 10)
+        if (i == 10) //vid den sista loopen skrivs ej "," efter texten
             Console.Write($"{i}. {text} \n\n");
         else
             Console.Write($"{i}. {text}, ");
