@@ -37,7 +37,7 @@ do
             TheThirdWord();
             break;
         default:
-            //Felmeddelande om anv anger ogiltig input
+            //Felmeddelande om användaren anger ogiltig input
             Console.WriteLine("Du har angett felaktig input!");
             break;
     }
@@ -45,7 +45,7 @@ do
     Console.ReadLine(); //Väntar på att användaren ska trycka enter innan menyn visas igen
     Console.Clear(); //Tar bort användarens tidigare inmatningar
 
-} while (true); //Do-while-loop för att menyn ska visas fram tills användaren väljer alternativ 0
+} while (true); //Do-while-loop för att menyn ska visas fram tills användaren väljer alternativ "0"
 
 
 
